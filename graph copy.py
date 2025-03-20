@@ -3,7 +3,6 @@ from state import State
 from llm import invoke_llm_stream, classify_query
 from webscraper import scrape_website
 from pineconeagent import query_pinecone
-from IPython.display import Image, display
 
 def chatbot(state: State):
     """Handles general chatbot responses."""
@@ -34,16 +33,8 @@ def build_chat_graph():
     graph_builder.add_edge("vector", END)
     # graph_builder.add_edge("web_scraper", END)
 
-
     return graph_builder.compile()
 
-
 chat_graph = build_chat_graph()
-
-try:
-    display(Image(chat_graph.get_graph().draw_mermaid_png()))
-except Exception:
-    # This requires some extra dependencies and is optional
-        pass
 
 # __all__ = ["graph"]

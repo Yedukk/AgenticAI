@@ -24,7 +24,7 @@ def summarize_text(text, query):
 
 def classify_query(user_input):
     """Classifies the user query as 'chat' or 'web' using LLM."""
-    prompt = f"Determine if this query is about general conversation or if it requires web data.\nQuery: {user_input}\nRespond with 'chat' or 'web' only."
+    prompt = f"Determine if this query is about general conversation or if it requires vector data.\nQuery: {user_input}\nRespond with 'chat' or 'vector' only."
     response = llm.invoke([{"role": "system", "content": prompt}])
     print("Classifies::",response.content.strip().lower())
     return response.content.strip().lower()
